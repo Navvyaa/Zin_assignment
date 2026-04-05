@@ -11,3 +11,12 @@ export const userLoginSchema=z.object({
     email:z.string().trim().email("Invalid Email Format"),
     password:z.string().trim().min(6,"Invalid Credentials")
 })
+
+export const updateUserSchema = z.object({
+  name: z.string().optional(),
+  role: z.enum(["admin", "analyst", "viewer"]).optional()
+});
+
+export const updateStatusSchema = z.object({
+  isActive: z.boolean()
+});
